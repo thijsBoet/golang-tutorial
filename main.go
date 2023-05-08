@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
 
 func main() {
 	// STRINGS
@@ -20,7 +24,6 @@ func main() {
 	nameFour := "yoshi"
 
 	fmt.Println(nameOne, nameTwo, nameThree, nameFour)
-
 
 	// INTEGERS
 	// ---------------------------------------------------------
@@ -47,7 +50,6 @@ func main() {
 	var scoreTwo float64 = 356789123456789654.4567891234567891011121314151
 	// Type inference === 64 bit float
 	scoreThree := 1.5
-
 
 	// PRINTING VARIABLES
 	// ---------------------------------------------------------
@@ -76,7 +78,6 @@ func main() {
 	// Sprintf (save formatted string in a variable)
 	var str = fmt.Sprintf("My age is %v and my score is %v \n", ageOne, scoreOne)
 	fmt.Println("The saved string is:", str)
-
 
 	// ARRAYS
 	// ---------------------------------------------------------
@@ -111,17 +112,59 @@ func main() {
 	rangeFour := names[:]
 	fmt.Println(rangeOne, rangeTwo, rangeThree, rangeFour)
 
+	// Slice functions
+	// ---------------------------------------------------------
+	// len() = length of slice
+	fmt.Println(len(scoresTwo))
+	// cap() = capacity of slice
+	fmt.Println(cap(scoresTwo))
+	// append() = append to slice
+	scoresTwo = append(scoresTwo, 7)
+	fmt.Println(scoresTwo)
+	// remove from slice
+	scoresTwo = append(scoresTwo[:2], scoresTwo[3:]...)
+	fmt.Println(scoresTwo)
 
+	// PACKAGES
+	// ---------------------------------------------------------
+	// Packages are collections of functions
+	// Packages are like libraries
+	// Packages are used to avoid name conflicts
+	// Packages are used to modularize code
 
+	// STRING PACKAGE
+	// Return a true or false
+	fmt.Println(strings.Contains(nameOne, "mario"))
+	// All original string are not changed
+	fmt.Println(strings.ReplaceAll(nameOne, "o", "ooooo!!!"))
+	fmt.Println(nameOne)
+	// Convert string to uppercase
+	fmt.Println(strings.ToUpper(nameOne))
+	// Convert string to lowercase
+	fmt.Println(strings.ToLower(nameOne))
+	// Trim space from string
+	fmt.Println(strings.TrimSpace("   Hello, World   "))
+	// Get index of character
+	fmt.Println(strings.Index(nameOne, "a"))
+	// Split string into a slice aka array in other languages
+	fmt.Println(strings.Split(nameOne, "a"))
 
+	// Sort Package
+	classAges := []int{45, 20, 35, 30, 75, 60, 50, 25}
+	// Sorts in ascending order
+	sort.Ints(classAges)
+	// Sorts in descending order
+	sort.Sort(sort.Reverse(sort.IntSlice(classAges)))
+	fmt.Println(classAges)
+	// Search for index in slice
+	index := sort.SearchInts(classAges, 30)
+	fmt.Println(index)
 
-
-
-
-
-
-
-
+	nintendoNames := []string{"yoshi", "mario", "peach", "bowser"}
+	fmt.Println(nintendoNames)
+	// Sorts in alphabetical order
+	nintendoNames = sort.Strings(nintendoNames)
+	fmt.Println(nintendoNames)
 
 	fmt.Println(ageOne, ageTwo, ageThree, numOne, numTwo, numThree, scoreOne, scoreTwo, scoreThree, ages, names, scores)
 }
