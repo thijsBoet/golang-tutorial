@@ -73,6 +73,55 @@ func main() {
 	// %0.2f = floating point number with 2 decimal places
 	fmt.Printf("You scored %.2f points! \n", 25.13)
 
+	// Sprintf (save formatted string in a variable)
+	var str = fmt.Sprintf("My age is %v and my score is %v \n", ageOne, scoreOne)
+	fmt.Println("The saved string is:", str)
 
-	fmt.Println(ageOne, ageTwo, ageThree, numOne, numTwo, numThree, scoreOne, scoreTwo, scoreThree)
+
+	// ARRAYS
+	// ---------------------------------------------------------
+	// Arrays are fixed length
+	// Arrays must be of the same type
+	// Arrays are rarely used in Go
+	var ages [3]int = [3]int{20, 25, 30}
+	ages[1] = 21
+	// Shorthand
+	names := [4]string{"yoshi", "mario", "peach", "bowser"}
+
+	// Slices
+	// ---------------------------------------------------------
+	// Slices are dynamic
+	// Slices can contain different types
+	// Slices are used 99% of the time
+	var scores = []int{100, 50, 60}
+	// Shorthand
+	scoresTwo := []int{1, 2, 3, 4, 5}
+	// Append to slice
+	scoresTwo = append(scoresTwo, 6)
+	fmt.Println(scoresTwo, len(scoresTwo))
+
+	// Slice ranges
+	// name two and three
+	rangeOne := names[1:3]
+	// name two until the end
+	rangeTwo := names[2:]
+	// start until name three (not included)
+	rangeThree := names[:3]
+	// all names
+	rangeFour := names[:]
+	fmt.Println(rangeOne, rangeTwo, rangeThree, rangeFour)
+
+
+
+
+
+
+
+
+
+
+
+
+
+	fmt.Println(ageOne, ageTwo, ageThree, numOne, numTwo, numThree, scoreOne, scoreTwo, scoreThree, ages, names, scores)
 }
